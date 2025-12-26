@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>XX搬運 - @ViewData["Title"]</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+	<header>
+		<!-- 導覽列 -->
+		<nav class="navbar navbar-light custom-nav shadow-1-strong">
+			<div class="container-fluid">
+				<!-- hamburger button -->
+				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+					<i class="fa fa-bars fa-lg"></i>
+				</button>
+
+				<a class="navbar-brand me-auto ms-2" href="/">
+					<img src="~/favicon.ico" width="30" height="24" class="d-inline-block align-text-top">
+					XX搬運
+				</a>
+
+				<div class="dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+						[帳號] - [員工姓名]
+					</a>
+					<ul class="dropdown-menu dropdown-menu-end">
+						<li><a class="dropdown-item" href="#">設定</a></li>
+						<li><a class="dropdown-item" href="#">1</a></li>
+						<li><a class="dropdown-item" href="#">2</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="#">登出</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!--側邊選單 細項須調整-->
+		<div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel" style="width: 280px;">
+			<div class="offcanvas-header border-bottom">
+				<h5 class="offcanvas-title" id="sidebarMenuLabel"> </h5>
+				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body p-0">
+				<div class="list-group list-group-flush">
+					<a class="list-group-item list-group-item-action py-3" data-bs-toggle="collapse" href="#favorite">
+						<i class="fas fa-box fa-fw me-3"></i>最愛功能 <i class="fas fa-chevron-down float-end"></i>
+					</a>
+					<!-- 最愛列 還沒想好怎做 -->
+					<div class="collapse" id="favorite">
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">最愛1</a>
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">最愛2</a>
+					</div>
+					<a class="list-group-item list-group-item-action py-3" data-bs-toggle="collapse" href="#personnel">
+						<i class="fas fa-box fa-fw me-3"></i>人事資料管理 <i class="fas fa-chevron-down float-end"></i>
+					</a>
+					<div class="collapse" id="personnel">
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">員工基本資料</a>
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">出勤管理</a>
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">人事異動</a>
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">薪資資料</a>
+					</div>
+					<a class="list-group-item list-group-item-action py-3" data-bs-toggle="collapse" href="#customer">
+						<i class="fas fa-box fa-fw me-3"></i>客戶與案件管理 <i class="fas fa-chevron-down float-end"></i>
+					</a>
+					<div class="collapse" id="customer">
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">客戶資料</a>
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">案件資料</a>
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">勘查清單</a>
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">生成報價單</a>
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">報價管理</a>
+					</div>
+					<a class="list-group-item list-group-item-action py-3" data-bs-toggle="collapse" href="#schedule">
+						<i class="fas fa-box fa-fw me-3"></i>車輛與人員排程 <i class="fas fa-chevron-down float-end"></i>
+					</a>
+					<div class="collapse" id="schedule">
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">資源管控</a>
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">任務發起</a>
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">任務排程</a>
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">任務派發</a>
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">資訊通知</a>
+					</div>
+					<a class="list-group-item list-group-item-action py-3" data-bs-toggle="collapse" href="#case">
+						<i class="fas fa-box fa-fw me-3"></i>搬家作業 <i class="fas fa-chevron-down float-end"></i>
+					</a>
+					<div class="collapse" id="case">
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">作業查詢</a>
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">進度回報</a>
+					</div>
+					<a class="list-group-item list-group-item-action py-3" data-bs-toggle="collapse" href="#complaint">
+						<i class="fas fa-box fa-fw me-3"></i>客訴反饋 <i class="fas fa-chevron-down float-end"></i>
+					</a>
+					<div class="collapse" id="complaint">
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">客訴處理</a>
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">客訴紀錄</a>
+					</div>
+					<a class="list-group-item list-group-item-action py-3" data-bs-toggle="collapse" href="#other">
+						<i class="fas fa-box fa-fw me-3"></i>其他功能 <i class="fas fa-chevron-down float-end"></i>
+					</a>
+					<div class="collapse" id="other">
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">公佈欄</a>
+						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">文件中心</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- 中間功能區 -->
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+
+
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

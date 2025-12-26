@@ -1,0 +1,24 @@
+.custom-nav {
+    --bs-navbar-bg: #ffefbf;
+    /* ­I´ºÃC¦â */
+    background-color: var(--bs-navbar-bg) !important;
+    --bs-navbar-color: rgb(80, 80, 80);
+    /* ¤å¦rÃC¦â */
+    --bs-navbar-hover-color: #000000;
+    /* ·Æ¹«Äa°±ÃC¦â */
+}
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.nav-link,
+.nav-link:hover,
+.nav-link:focus,
+.nav-link:active {
+    color: black;
+}
