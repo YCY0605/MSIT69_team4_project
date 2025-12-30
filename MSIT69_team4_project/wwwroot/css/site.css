@@ -1,11 +1,48 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.maincontainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainvw {
+    padding: 0 7%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainvwrow {
+    flex: 1;
+    display: flex;
+}
+
+.indexdiv {
+    padding: 2%;
+    container-type: inline-size;
+    min-height: 600px;
+}
+
+.indexleftbutton {
+    height: min(30cqw,80cqh);
+    aspect-ratio: 1;
+    border-radius: 10%;
+    font-size: 6cqw;
+}
+
 .custom-nav {
     --bs-navbar-bg: #ffefbf;
-    /* ­I´ºÃC¦â */
     background-color: var(--bs-navbar-bg) !important;
     --bs-navbar-color: rgb(80, 80, 80);
-    /* ¤å¦rÃC¦â */
     --bs-navbar-hover-color: #000000;
-    /* ·Æ¹«Äa°±ÃC¦â */
 }
 
 .navbar-toggler,
@@ -21,4 +58,53 @@
 .nav-link:focus,
 .nav-link:active {
     color: black;
+}
+
+.no-caret::after {
+    display: none !important;
+}
+
+.indexrightbutton {
+    border-radius: 10%;
+    margin: 10px;
+    font-size: 6cqw;
+    background-color: #ffee90;
+    border: 3px solid #aaaaaa;
+}
+
+.calendar {
+    font-size: 5cqw;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(auto-fill, 30px);
+    overflow-y: auto;
+    gap: 1px;
+    background-color: #999999;
+    border: 1px solid #999999;
+}
+
+.calendarfield {
+    width: 100%;
+    height: 100%;
+    background-color: #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendaritem {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block {
+    border-radius: 10px;
+    border: 3px solid #aaaaaa;
+    background-color: #fff7e1;
+    width: 100%;
 }
