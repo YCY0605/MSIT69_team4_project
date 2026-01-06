@@ -8,12 +8,7 @@
 		<!-- 打卡按鈕 -->
 		<div style="height: 20%; width: 100%; border-radius: 10px;background-color: #dddddd;
 			display: grid; grid-template-columns: 1fr 1fr 1fr; place-items: center; container-type: size;">
-			<button class="indexleftbutton" style="background-color:#77ff77">簽到</button><button class="indexleftbutton" style="background-color:#77ff77">簽到</button><button class="indexleftbutton" style="background-color:#77ff77">簽到</button>
-			@* <div class="row" style="height: 100%; width: 80%;">
-				<div class="col-4"><button class="indexleftbutton" style="background-color:#77ff77">簽到</button></div>
-				<div class="col-4"><button class="indexleftbutton" style="background-color:#f5a199">簽退</button></div>
-				<div class="col-4"><button class="indexleftbutton" style="background-color:#ff9966">外出</button></div>
-			</div> *@
+			<button class="indexleftbutton" style="background-color:#77ff77">簽到</button><button class="indexleftbutton" style="background-color:#f5a199">簽退</button><button class="indexleftbutton" style="background-color:#ff9966">外出</button>
 		</div>
 		<!-- 時間 -->
 		<div style="height:25%; container-type: inline-size;
@@ -23,7 +18,7 @@
 		</div>
 		<!-- 今日待辦 -->
 		<div class="block" style="height:55%;">
-			<ul style="font-size:8cqw; display: grid; place-items: center;">今日待辦事項：</ul>
+			<ul style="font-size:8cqw; display: grid; place-items: center; padding: 0">今日待辦事項</ul>
 		</div>
 	</div>
 
@@ -31,7 +26,7 @@
 	<div class="col d-none d-md-block indexdiv">
 		<div class="block" style="height: 100%; padding: 0 5%">
 			<div style="width:100%;position: relative; text-align: center;">
-				<span style="font-size: 8cqw;">行事曆：</span>
+				<span style="font-size: 8cqw;">行事曆</span>
 			</div>
 			<div class="calendar">
 				<div class="calendarfield">日期</div><div class="calendarfield">星期</div class="calendarfield"><div class="calendarfield">早班</div><div class="calendarfield">晚班</div><div class="calendarfield">大夜班</div>
@@ -68,3 +63,5 @@
 		</div>
 	</div>
 </div>
+
+<script src="~/js/index.js" asp-append-version="true"></script>

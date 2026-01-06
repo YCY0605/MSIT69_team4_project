@@ -21,7 +21,7 @@
 				</button>
 
 				<a class="navbar-brand me-auto ms-2" href="/">
-					<img src="~/favicon.ico" width="30" height="24" class="d-inline-block align-text-top">
+					<i style="color: #F75000" class="fa-solid fa-truck-fast"></i>
 					XX搬運
 				</a>
 
@@ -103,7 +103,7 @@
 					</a>
 					<div class="collapse" id="case">
 						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">作業查詢</a>
-						<a href="#" class="list-group-item list-group-item-action py-2 ps-5">進度回報</a>
+						<a asp-controller="Report" asp-action="Progress" class="list-group-item list-group-item-action py-2 ps-5">進度回報</a>
 					</div>
 					<a class="list-group-item list-group-item-action py-3" data-bs-toggle="collapse" href="#complaint">
 						<i class="fas fa-box fa-fw me-3"></i>客訴反饋 <i class="fas fa-chevron-down float-end"></i>
@@ -131,9 +131,9 @@
 		</main>
 	</div>
 
+
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
-	<script src="~/js/site.js" asp-append-version="true"></script>
 
 
 	@await RenderSectionAsync("Scripts", required: false)
