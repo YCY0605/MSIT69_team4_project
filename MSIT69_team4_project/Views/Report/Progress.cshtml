@@ -8,6 +8,13 @@
 <div class="topText" id="date" style="width:100%;">111</div>
 
 <div class="row" style="height:100%;">
+	<!-- 二次確認 -->
+	<dialog id="checkDialog" style="top:200px; width:300px; height:150px; background-color: #dfcc99">
+		<p>是否確定回報？</p>
+		<button id="yesBtn" style="width:100px; height:60px">是</button>
+		<button id="noBtn" style="width:100px; height:60px">否</button>
+	</dialog>
+
 	<!-- 電腦 -->
 	<div class="col d-none d-md-block" style="height:100%; border: 2px solid lightgray">
 		<table id="ProgressTable" class="display">
@@ -322,12 +329,17 @@
 						"targets": -1,
 						"orderable": false,
 						"className": "dt-center",
-						"render": function (data, type, row) {
-							return '<button type="button" class="reportbtn">回報</button>';
+						"render": function () {
+							var s = '<button id="'+"單號"+'" type="button" class="reportbtn">回報</button>';
+							return s;
 						}
 					}
 				]
 			});
+		});
+		$(document).on('click', '.reportbtn', function(){
+			document.getElementById('checkDialog').showModal();
+			console.log("111");
 		});
 	</script>
 }
