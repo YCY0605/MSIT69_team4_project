@@ -6,14 +6,16 @@
 
 <div class="row" style="height:100%;">
 	<div class="col d-none d-md-block" style="height:100%; border: 2px solid lightgray">
-		<div class="date-filter">
-			從：<input type="date" id="minDate">
-			至：<input type="date" id="maxDate">
-		</div>
+
 		<table id="ProgressTable" class="display">
 			<thead>
 				<tr class="searchrow">
-					<th class="nosort"></th>
+					<th>
+						<div class="date-filter">
+							從：<input type="date" id="minDate">
+							至：<input type="date" id="maxDate">
+						</div>
+					</th>
 					<th><input type="text" placeholder="搜尋單號..." /></th>
 					<th><input type="text" placeholder="搜尋狀態..." /></th>
 					<th></th>
@@ -334,7 +336,7 @@
 						}
 					}
 				],
-				"orderCellsTop": true, // 確保排序點擊不會被輸入框干擾
+				"titleRow": 1, // 確保排序點擊不會被輸入框干擾
 			});
 			// 依員工ID 查詢任務
 
