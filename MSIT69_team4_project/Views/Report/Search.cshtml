@@ -1,28 +1,23 @@
 ﻿@{
-	ViewData["Title"] = "Progress";
+	ViewData["Title"] = "Search";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link rel="stylesheet" href="https://cdn.datatables.net/2.3.6/css/dataTables.dataTables.min.css"/>
-
-
-<div class="topText" id="date" style="width:100%;"></div>
+<link rel="stylesheet" href="https://cdn.datatables.net/2.3.6/css/dataTables.dataTables.min.css" />
 
 <div class="row" style="height:100%;">
-	<!-- 二次確認 -->
-	<dialog id="checkDialog" class="checkdialog">
-		<div class="dialogtext">是否確定回報？</div>
-		<form method="dialog">
-			<div class="dialogbuttondiv">
-				<button id="yesBtn" class="dialogbutton" style="background-color: #55ff55"><b>是</b></button>
-				<button id="noBtn" class="dialogbutton" style="background-color: #bbbbbb"><b>否</b></button>
-			</div>
-		</form>
-	</dialog>
-
-	<!-- 電腦 -->
 	<div class="col d-none d-md-block" style="height:100%; border: 2px solid lightgray">
+		<div class="date-filter">
+			從：<input type="date" id="minDate">
+			至：<input type="date" id="maxDate">
+		</div>
 		<table id="ProgressTable" class="display">
 			<thead>
+				<tr class="searchrow">
+					<th class="nosort"></th>
+					<th><input type="text" placeholder="搜尋單號..." /></th>
+					<th><input type="text" placeholder="搜尋狀態..." /></th>
+					<th></th>
+				</tr>
 				<tr>
 					<th class="dt-left">開始時間</th>
 					<th class="nosort dt-left">單號</th>
@@ -60,20 +55,7 @@
 			</tbody>
 		</table>
 	</div>
-	<!-- 手機 只顯示未完成且開始時間最早之單號-->
-	<div class="col d-block d-md-none">
-		<div style="display: flex; justify-content: center; align-items: center; height: 69px; font-size: 24px; border: 2px red solid">
-			單號：<b>aaaaaaaa1111</b>
-		</div>
-		<div style="display: flex; justify-content: center; align-items: center; height: 200px; font-size: 24px; line-height: 2">
-			開始時間：<br>目前進度：<br>下一進度：
-		</div>
-		<div style="display: flex; justify-content: center;">
-			<button id="moblereportbtn" style="flex:1; height: 200px; background-color: #00ba00; font-size:50px;border-radius:5px">回報</button>
-		</div>
-	</div>
 </div>
-
 
 
 @section Scripts {
@@ -82,7 +64,7 @@
 
 	<script>
 		$(document).ready( function () {
-			$('#ProgressTable').DataTable({
+			var table = $('#ProgressTable').DataTable({
 				"language": {
 		  "processing": "處理中...",
 		  "loadingRecords": "載入中...",
@@ -324,6 +306,9 @@
 		},
 				"pageLength": 10,		// 每頁顯示幾筆
 				"searching": true,		// 開啟搜尋功能
+				"layout": {
+					"topEnd": null		// 隱藏預設搜尋框
+				},
 				"info": false,			// 是否顯示左下角「顯示第幾筆」資訊
 				"lengthChange": false,	// 是否顯示「每頁幾筆」的選單
 				"paging": false,		// 頁次
@@ -344,24 +329,66 @@
 						"orderable": false,
 						"className": "dt-center",
 						"render": function () {
-							var s = '<button id="'+"單號"+'" type="button" class="reportbtn">回報</button>';
+							var s = '<button id="'+"單號"+'" type="button" class="">詳細資料</button>';
 							return s;
 						}
 					}
-				]
+				],
+				"orderCellsTop": true, // 確保排序點擊不會被輸入框干擾
 			});
-			// 依員工ID查詢今日任務
-		});
-		$(document).on('click', '.reportbtn', function(){
-			document.getElementById('checkDialog').showModal();
-		});
-		$(document).on('click', '#yesBtn', function(){
-			// 進度回報 API
+			// 依員工ID 查詢任務
+
+
+			// 監聽輸入框
+			$(document).on('keyup change', '.dt-scroll-head .searchrow input, #ProgressTable thead .searchrow input', function() {
+				var $this = $(this);
+				var index = $this.closest('th').index();
+				table.column(index).search($this.val()).draw();
+			});
 		});
 
-		$(document).on('click', '#moblereportbtn', function(){
-			document.getElementById('checkDialog').showModal();
+		DataTable.ext.search.push(function (settings, data, dataIndex) {
+			if (settings.nTable.id !== 'ProgressTable') return true;
+
+			var min = $('#minDate').val();
+			var max = $('#maxDate').val();
+			var rowDate = new Date(data[0].trim());
+			console.log("rowDate: "+rowDate);
+
+			var minDate = null;
+			if (min) {
+				var mParts = min.split('-');
+				minDate = new Date(mParts[0], mParts[1] - 1, mParts[2]);
+			}
+			var maxDate = null;
+			var maxDate = null;
+			if (max) {
+				var xParts = max.split('-');
+				maxDate = new Date(xParts[0], xParts[1] - 1, xParts[2], 23, 59, 59, 999);
+			}
+			console.log("min: "+ minDate);
+			console.log("max: "+ maxDate);
+			if (
+				(!minDate || rowDate >= minDate) &&
+				(!maxDate || rowDate <= maxDate)
+			) {
+				return true;
+			}
+			return false;
 		});
 
+		// 日期變更
+		$('#minDate, #maxDate').on('change', function () {
+			$('#ProgressTable').DataTable().draw();
+		});
+
+		// 監聽欄位搜尋輸入框
+		$(document).on('keyup change', '.dt-scroll-head .searchrow input, #ProgressTable thead .searchrow input', function() {
+			var index = $(this).closest('th').index();
+			var value = $(this).val();
+
+			var tableInstance = $('#ProgressTable').DataTable();
+			tableInstance.column(index).search(value).draw();
+		});
 	</script>
 }

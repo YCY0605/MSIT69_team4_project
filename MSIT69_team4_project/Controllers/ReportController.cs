@@ -8,5 +8,10 @@ namespace MSIT69_team4_project.Controllers
         {
             return View();
         }
+
+        public IActionResult Search()
+        {
+            return View();
+        }
     }
 }

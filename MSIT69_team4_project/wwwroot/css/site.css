@@ -130,3 +130,30 @@ body {
     border-radius: 4px;
     cursor: pointer;
 }
+
+.checkdialog {
+    top: 30vh;
+    width: 300px;
+    height: 150px;
+    background-color: #dfcc99;
+    border: 3px solid #555555;
+    border-radius: 4px;
+}
+
+.dialogtext {
+    height: 70px;
+    font-size: 20px;
+    display:flex;
+}
+
+.dialogbuttondiv {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.dialogbutton {
+    height: 40px;
+    border-radius: 3px;
+    flex: 1;
+}
