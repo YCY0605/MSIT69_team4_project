@@ -13,5 +13,10 @@ namespace MSIT69_team4_project.Controllers
         {
             return View();
         }
+
+        public IActionResult CaseDetails()
+        {
+            return View();
+        }
     }
 }

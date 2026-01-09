@@ -1,0 +1,136 @@
+﻿@{
+	ViewData["Title"] = "CaseDetails";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="casedetailcontainer">
+	<div class="topText" style="flex-shrink: 0;">排程號：aaaaaaa111111</div>
+	<div class="row" style="margin: 0; flex: 1; min-height: 0; overflow: hidden;">
+		<!-- 左側案件資訊 -->
+		<div class="col-12 col-md-8 casedetailrow" style="">
+			<div class="block" style="display: flex; flex: 1; flex-direction: column; overflow: hidden;">
+				<p class="blocktitle">作業資訊</p>
+				<div style="flex: 1; display: flex; flex-direction: column; padding: 0 30px; overflow: hidden;">
+					<div style="flex-shrink: 0; font-size: 20px;">
+						客戶名稱：<br>
+						客戶電話：<br>
+						起點：<br>
+						終點：<br>
+						狀態：<br>
+						司機：<br> <!-- 點擊名字顯示連絡電話、分機、email -->
+						搬運：<br> <!-- 點擊名字顯示連絡電話、分機、email -->
+						注意事項：
+					</div>
+					<p style="flex: 1; overflow-y: auto; font-size: 18px; padding: 10px; ">
+						X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X<br>X
+					</p>
+					<div style="height: 20px;"></div>
+				</div>
+			</div>
+		</div>
+		<!-- 右側案件回報 -->
+		<div class="col-12 col-md-4 casedetailrow" style="gap: 0.5%">
+			<div class="block casedetailrowblock" style="">
+				<p class="blocktitle">進度追蹤</p>
+				<div style="flex: 1; overflow-y: auto; font-size: 18px; margin: 0 10px; scrollbar-gutter: stable;">
+					<table style="width:100%; text-align: left">
+						<thead style="position: sticky; top: 0; z-index: 1; background-color: #fff7e1;">
+							<tr>
+								<th style="width: 50%;">時間</th>
+								<th style="width: 25%;">狀態</th>
+								<th style="width: 25%;">回報人員</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2026/06/06 08:00</td>
+								<td>到達起點</td>
+								<td>王小名</td>
+							</tr>
+							<tr>
+								<td>2026/06/06 09:00</td>
+								<td>離開起點</td>
+								<td>王小名</td>
+							</tr>
+							<tr>
+								<td>2026/06/06 11:00</td>
+								<td>到達目的</td>
+								<td>王小名</td>
+							</tr>
+							<tr>
+								<td>2026/06/06 12:00</td>
+								<td>完成搬運</td>
+								<td>王小名</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="block casedetailrowblock" style="">
+				<p class="blocktitle">現場紀錄<a href="" style="position: absolute; right:10px; font-size: 20px; bottom: 6px">新增</a></p>
+				<div style="flex: 1; overflow-y: auto; font-size: 18px; margin: 0 10px; scrollbar-gutter: stable;">
+					<table style="width:100%; text-align: left">
+						<thead style="position: sticky; top: 0; z-index: 1; background-color: #fff7e1;">
+							<tr>
+								<th style="width: 75%;">時間</th>
+								<th style="width: 25%;">回報人員</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2026/06/06 08:00</td>
+								<td>王小名</td>
+							</tr>
+							<tr>
+								<td>2026/06/06 09:00</td>
+								<td>王小名</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="block casedetailrowblock" style="">
+				<p class="blocktitle">意外回報<a href="" style="position: absolute; right:10px; font-size: 20px; bottom: 6px">新增</a></p>
+				<div style="flex: 1; overflow-y: auto; font-size: 18px; margin: 0 10px; scrollbar-gutter: stable;">
+					<table style="width:100%; text-align: left">
+						<thead style="position: sticky; top: 0; z-index: 1; background-color: #fff7e1;">
+							<tr>
+								<th style="width: 50%;">時間</th>
+								<th style="width: 25%;">類型</th>
+								<th style="width: 25%;">回報人員</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2026/06/06 08:00</td>
+								<td>物品損壞</td>
+								<td>王小名</td>
+							</tr>
+							<tr>
+								<td>2026/06/06 09:00</td>
+								<td>車禍</td>
+								<td>王小名</td>
+							</tr>
+							<tr>
+								<td>2026/06/06 09:00</td>
+								<td>車禍</td>
+								<td>王小名</td>
+							</tr>
+							<tr>
+								<td>2026/06/06 09:00</td>
+								<td>車禍</td>
+								<td>王小名</td>
+							</tr>
+							<tr>
+								<td>2026/06/06 09:00</td>
+								<td>車禍</td>
+								<td>王小名</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+			<div class="invisible"></div>
+	</div>
+</div>

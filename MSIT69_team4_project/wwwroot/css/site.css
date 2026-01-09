@@ -107,13 +107,23 @@ body {
     border: 3px solid #aaaaaa;
     background-color: #fff7e1;
     width: 100%;
+    padding: 5px;
+}
+
+.blocktitle {
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0;
 }
 
 .topText {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 59px;
+    height: 56px;
     font-size: 24px;
 }
 
@@ -156,4 +166,42 @@ body {
     height: 40px;
     border-radius: 3px;
     flex: 1;
+}
+
+.casedetailcontainer {
+    height: calc(100dvh - 56px - 3rem);
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.casedetailrow {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.casedetailrowblock {
+    height: 33%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 當螢幕寬度小於 768px 時觸發 */
+@media (max-width: 767px) {
+    .casedetailcontainer {
+        height: auto; /* 取消固定高度限制 */
+    }
+
+    .casedetailrow {
+        height: auto; /* 取消固定高度限制 */
+    }
+
+    .casedetailrowblock {
+        height: auto; /* 取消固定高度限制 */
+    }
+
+    .invisible {
+        height: 10px;
+    }
 }
